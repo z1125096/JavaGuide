@@ -1,7 +1,5 @@
 点击关注[公众号](#公众号)及时获取笔主最新更新文章，并可免费领取本文档配套的《Java面试突击》以及Java工程师必备学习资源。
 
-**[推荐一下阿里云双11的活动：云服务器1折起，仅86元/年，限量抢购！](https://www.aliyun.com/1111/2019/group-buying-share?ptCode=32AE103FC8249634736194795A3477C4647C88CF896EF535&userCode=hf47liqn&share_source=copy_link)** （仅限新人，老用户可以考虑使用家人或者朋友账号购买，推荐799/3年 2核4G 这个性价比和适用面更广。不懂怎么使用云服务器的朋友可以看这篇[阿里云服务器使用经验](docs/tools/阿里云服务器使用经验.md)）。
-
 <p align="center">
 <a href="https://github.com/Snailclimb/JavaGuide" target="_blank">
 	<img src="https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-3/logo - 副本.png" width=""/>
@@ -24,7 +22,7 @@
   </a >
 </p>
 
-推荐使用 https://snailclimb.top/JavaGuide/ 在线阅读(访问速度慢的话，请使用 https://snailclimb.gitee.io/javaguide )，在线阅读内容本仓库同步一致。这种方式阅读的优势在于：有侧边栏阅读体验更好，Gitee pages 的访问速度相对来说也比较快。
+推荐使用  https://snailclimb.gitee.io/javaguide 在线阅读，在线阅读内容本仓库同步一致。这种方式阅读的优势在于：阅读体验会更好。
 
 ## 目录
 
@@ -45,12 +43,18 @@
 - [数据库](#数据库)
     - [MySQL](#mysql)
     - [Redis](#redis)
+    - [数据库扩展](#数据库扩展)
 - [系统设计](#系统设计)
     - [常用框架(Spring/SpringBoot、Zookeeper ... )](#常用框架)
-    - [数据通信(消息队列、Dubbo ... )](#数据通信)
+    - [数据通信/中间件(消息队列、RPC ... )](#数据通信中间件)
     - [权限认证](#权限认证)
+    - [分布式 & 微服务](#分布式--微服务)
+      - [API 网关](#api-网关)
+      - [配置中心](#配置中心)
+      - [唯一 id 生成](#唯一-id-生成)
+      - [服务治理：服务注册与发现、服务路由控制](#服务治理服务注册与发现服务路由控制)
+    - [架构](#架构)
     - [设计模式(工厂模式、单例模式 ... )](#设计模式)
-    - [网站架构](#网站架构)
 - [面试指南](#面试指南)
     - [备战面试](#备战面试)
     - [常见面试题总结](#常见面试题总结)
@@ -86,6 +90,7 @@
 * **[Java 并发基础常见面试题总结](docs/java/Multithread/JavaConcurrencyBasicsCommonInterviewQuestionsSummary.md)**
 * **[Java 并发进阶常见面试题总结](docs/java/Multithread/JavaConcurrencyAdvancedCommonInterviewQuestions.md)**
 * [并发容器总结](docs/java/Multithread/并发容器总结.md)
+* **[Java线程池学习总结](./docs/java/Multithread/java线程池学习总结.md)**
 * [乐观锁与悲观锁](docs/essential-content-for-interview/面试必备之乐观锁与悲观锁.md)
 * [JUC 中的 Atomic 原子类总结](docs/java/Multithread/Atomic.md)
 * [AQS 原理以及 AQS 同步组件总结](docs/java/Multithread/AQS.md)
@@ -98,6 +103,8 @@
 * [四 类文件结构](docs/java/jvm/类文件结构.md)
 * **[五 类加载过程](docs/java/jvm/类加载过程.md)**
 * [六 类加载器](docs/java/jvm/类加载器.md)
+* **[【待完成】八 最重要的 JVM 参数指南（翻译完善了一半）](docs/java/jvm/最重要的JVM参数指南.md)**
+* [九 JVM 配置常用参数和常用 GC 调优策略](docs/java/jvm/GC调优参数.md)
 
 ### I/O
 
@@ -112,7 +119,7 @@
 
 ### 优雅 Java 代码必备实践(Java编程规范)
 
-* [Java 编程规范以及优雅Java代码实践总结](docs/java/Java编程规范.md)
+* [Java 编程规范以及优雅 Java 代码实践总结](docs/java/Java编程规范.md)
 
 ## 网络
 
@@ -158,8 +165,12 @@
 
 * [Redis 总结](docs/database/Redis/Redis.md)
 * [Redlock分布式锁](docs/database/Redis/Redlock分布式锁.md)
-* [如何做可靠的分布式锁，Redlock真的可行么]()
+* [如何做可靠的分布式锁，Redlock真的可行么](docs/database/Redis/如何做可靠的分布式锁，Redlock真的可行么.md)
 * [几种常见的 Redis 集群以及使用场景](docs/database/Redis/redis集群以及应用场景.md) 
+
+### 数据库扩展
+
+代办......
 
 ## 系统设计
 
@@ -179,16 +190,16 @@
 - [ZooKeeper 相关概念总结](docs/system-design/framework/ZooKeeper.md)
 - [ZooKeeper 数据模型和常见命令](docs/system-design/framework/ZooKeeper数据模型和常见命令.md)
 
-### 数据通信
+### 数据通信/中间件
 
 - [数据通信(RESTful、RPC、消息队列)相关知识点总结](docs/system-design/data-communication/summary.md)
-- [服务之间的调用为啥不直接用 HTTP 而用 RPC？](docs/system-design/data-communication/why-use-rpc.md)
 
-#### Dubbo
+#### RPC
 
 - [Dubbo 总结：关于 Dubbo 的重要知识点](docs/system-design/data-communication/dubbo.md)
+- [服务之间的调用为啥不直接用 HTTP 而用 RPC？](docs/system-design/data-communication/why-use-rpc.md)
 
-#### 消息中间件
+#### 消息队列
 
 - [消息队列总结](docs/system-design/data-communication/message-queue.md)
 - [RabbitMQ 入门](docs/system-design/data-communication/rabbitmq.md)
@@ -202,15 +213,36 @@
 - **[JWT 优缺点分析以及常见问题解决方案](docs/system-design/authority-certification/JWT-advantages-and-disadvantages.md)**
 - **[适合初学者入门 Spring Security With JWT 的 Demo](https://github.com/Snailclimb/spring-security-jwt-guide)**
 
+### 分布式 & 微服务
+
+- [分布式应该学什么](docs/system-design/website-architecture/分布式.md)
+
+#### API 网关
+
+网关主要用于请求转发、安全认证、协议转换、容灾。
+
+- [浅析如何设计一个亿级网关(API Gateway)](docs/system-design/micro-service/API网关.md)
+
+#### 配置中心
+
+代办......
+
+#### 唯一 id 生成
+
+ [分布式id生成方案总结](docs/system-design/micro-service/分布式id生成方案总结.md)
+
+#### 服务治理：服务注册与发现、服务路由控制
+
+代办......
+
+### 架构
+
+- [8 张图读懂大型网站技术架构](docs/system-design/website-architecture/8%20张图读懂大型网站技术架构.md)
+- [【面试精选】关于大型网站系统架构你不得不懂的10个问题](docs/system-design/website-architecture/关于大型网站系统架构你不得不懂的10个问题.md)
+
 ### 设计模式
 
 - [设计模式系列文章](docs/system-design/设计模式.md)
-
-### 网站架构
-
-- [一文读懂分布式应该学什么](docs/system-design/website-architecture/分布式.md)
-- [8 张图读懂大型网站技术架构](docs/system-design/website-architecture/8%20张图读懂大型网站技术架构.md)
-- [【面试精选】关于大型网站系统架构你不得不懂的10个问题](docs/system-design/website-architecture/关于大型网站系统架构你不得不懂的10个问题.md)
 
 ## 面试指南
 
@@ -220,7 +252,7 @@
 * **[【备战面试2】初出茅庐的程序员该如何准备面试？](docs/essential-content-for-interview/PreparingForInterview/interviewPrepare.md)**
 * **[【备战面试3】7个大部分程序员在面试前很关心的问题](docs/essential-content-for-interview/PreparingForInterview/JavaProgrammerNeedKnow.md)**
 * **[【备战面试4】Github上开源的Java面试/学习相关的仓库推荐](docs/essential-content-for-interview/PreparingForInterview/JavaInterviewLibrary.md)**
-* **[【备战面试5】如果面试官问你“你有什么问题问我吗？”时，你该如何回答](docs/essential-content-for-interview/PreparingForInterview/如果面试官问你"你有什么问题问我吗？"时，你该如何回答.md)**
+* **[【备战面试5】如果面试官问你“你有什么问题问我吗？”时，你该如何回答](docs/essential-content-for-interview/PreparingForInterview/面试官-你有什么问题要问我.md)**
 * **[【备战面试6】美团面试常见问题总结（附详解答案）](docs/essential-content-for-interview/PreparingForInterview/美团面试常见问题总结.md)**
 * **[【备战面试7】一些刁难的面试问题总结](https://xiaozhuanlan.com/topic/9056431872)**
 
@@ -241,6 +273,7 @@
 
 - [Java学习路线和方法推荐](docs/questions/java-learning-path-and-methods.md)
 - [Java培训四个月能学会吗？](docs/questions/java-training-4-month.md)
+- [新手学习Java，有哪些Java相关的博客，专栏，和技术学习网站推荐？](docs/questions/java-learning-website-blog.md)
 
 ## 工具
 
@@ -275,7 +308,7 @@
 
 ## 待办
 
-- [ ] Java 多线程类别知识重构(---正在进行中---)
+- [x] Java 多线程类别知识重构
 - [ ] Netty 总结(---正在进行中---)
 - [ ] 数据结构总结重构(---正在进行中---)
 
@@ -305,7 +338,7 @@ Markdown 格式参考：[Github Markdown格式](https://guides.github.com/featur
 
 1. 笔记内容大多是手敲，所以难免会有笔误，你可以帮我找错别字。
 2. 很多知识点我可能没有涉及到，所以你可以对其他知识点进行补充。
-3. 现有的知识点难免存在不完善或者错误，所以你可以对已有知识点的修改/补充。
+3. 现有的知识点难免存在不完善或者错误，所以你可以对已有知识点进行修改/补充。
 
 ### 为什么要做这个开源文档？
 
